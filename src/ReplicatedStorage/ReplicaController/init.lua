@@ -160,13 +160,6 @@ do
 	end
 	
 	Madwork = {
-		GetShared = function(package_name, item_name)
-			-- Ignoring package_name as we're working without Madwork framework
-			return WaitForDescendant(game:GetService("ReplicatedStorage"), item_name, "module")
-		end,
-		GetModule = function(package_name, module_name)
-			return WaitForDescendant(game:GetService("ServerScriptService"), module_name, "module")
-		end,
 		SetupRemoteEvent = function(remote_name)
 			if RunService:IsServer() == true then
 				local remote_event = Instance.new("RemoteEvent")
@@ -180,7 +173,7 @@ do
 		Shared = {}, -- A Madwork package reference - ReplicaService will try to check this table
 	}
 	
-	local MadworkScriptSignal = require(Madwork.GetShared("Madwork", "MadworkScriptSignal"))
+	local MadworkScriptSignal = require(script:WaitForChild('MadworkScriptSignal'))
 	Madwork.NewScriptSignal = MadworkScriptSignal.NewScriptSignal
 	Madwork.NewArrayScriptConnection = MadworkScriptSignal.NewArrayScriptConnection
 end
@@ -255,7 +248,7 @@ local ReplicaController = {
 
 ----- Loaded Modules -----
 
-local MadworkMaid = require(Madwork.GetShared("Madwork", "MadworkMaid"))
+local MadworkMaid = require(script:WaitForChild('MadworkMaid'))
 
 ----- Private Variables -----
 
