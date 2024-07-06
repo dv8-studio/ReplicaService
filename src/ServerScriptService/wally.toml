@@ -1,6 +1,6 @@
 [package]
 name = "etheroit/replicaservice"
-version = "1.0.1"
+version = "1.0.2"
 license = "Apache License 2.0"
 authors = ["loleris"]
 description = "loleris' ReplicaService (ReplicaService) forked for wally"
